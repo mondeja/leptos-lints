@@ -20,11 +20,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Setup Rust
-        if: matrix.job == 'cargo-machete'
+        if: matrix.job == 'cargo-machete' || matrix.job == 'pre-commit'
         uses: hecrj/setup-rust-action@v2
         with:
           rust-version: stable
           profile: minimal
+      - name: Install cargo-fmt
+        if: matrix.job == 'pre-commit'
+        run: rustup component add --toolchain nightly-2025-05-14-x86_64-unknown-linux-gnu rustfmt
       - name: Set up Python
         if: matrix.job == 'pre-commit'
         uses: actions/setup-python@v5
@@ -37,13 +40,7 @@ jobs:
           pip install pre-commit
       - name: Lint
         if: matrix.job == 'pre-commit'
-        uses: nick-fields/retry@v3
-        with:
-          timeout_minutes: 25
-          max_attempts: 3
-          retry_wait_seconds: 15
-          warning_on_retry: false
-          command: pre-commit run --all-files --show-diff-on-failure
+        run: pre-commit run --all-files --show-diff-on-failure
       - name: Restore lychee cache
         if: matrix.job == 'lychee'
         uses: actions/cache@v4
@@ -80,7 +77,6 @@ jobs:
         with:
           rust-version: stable
           profile: minimal
-          targets: wasm32-unknown-unknown
       - name: Install Dylint
         uses: taiki-e/install-action@v2
         with:

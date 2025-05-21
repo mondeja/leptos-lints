@@ -18,9 +18,10 @@ repos:
     hooks:
       - id: trailing-whitespace
         name: trailing-whitespace
-        exclude: "^lints"
+        exclude: "^lints[^.]+.stderr$"
       - id: end-of-file-fixer
         name: end-of-file-fixer
+        exclude: "^lints[^.]+.stderr$"
   - repo: https://github.com/DavidAnson/markdownlint-cli2
     rev: v0.17.1
     hooks:

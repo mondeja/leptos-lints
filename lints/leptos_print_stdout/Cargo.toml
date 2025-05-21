@@ -17,10 +17,10 @@ path = "ui/call.rs"
 [dependencies]
 clippy_utils.workspace = true
 dylint_linting.workspace = true
-leptos.workspace = true
 
 [dev-dependencies]
 dylint_testing.workspace = true
+leptos.workspace = true
 
 [package.metadata.rust-analyzer]
 rustc_private = true

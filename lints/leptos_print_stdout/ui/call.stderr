@@ -16,3 +16,4 @@ LL |     ::leptos::logging::log!("bar");
    = help: for further information visit https://github.com/mondeja/leptos-lints/tree/master/lints/leptos_print_stdout#readme
 
 error: aborting due to 2 previous errors
+
