@@ -1,0 +1,18 @@
+error: use of `leptos::logging::log!`
+  --> $DIR/call.rs:19:5
+   |
+LL |     leptos::logging::log!("foo");
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: for further information visit https://github.com/mondeja/leptos-lints/tree/master/lints/leptos_print_stdout#readme
+   = note: `#[deny(leptos_print_stdout)]` on by default
+
+error: use of `leptos::logging::log!`
+  --> $DIR/call.rs:28:5
+   |
+LL |     ::leptos::logging::log!("bar");
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: for further information visit https://github.com/mondeja/leptos-lints/tree/master/lints/leptos_print_stdout#readme
+
+error: aborting due to 2 previous errors
